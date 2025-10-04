@@ -1,0 +1,5 @@
+{
+  "name": "Magical Library Adventure",
+  "description": "A 2D side-scrolling platformer where you control a young explorer trapped in a magical library. Collect scattered magical books, solve puzzles, and uncover the library's secrets to find your way out.",
+  "requestFramePermissions": []
+}

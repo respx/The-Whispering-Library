@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magical Library Adventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      @keyframes glow {
+        0%, 100% { text-shadow: 0 0 5px #fef08a, 0 0 10px #fef08a; }
+        50% { text-shadow: 0 0 10px #fde047, 0 0 20px #fde047; }
+      }
+      .text-glow {
+        animation: glow 1.5s ease-in-out infinite;
+      }
+      @keyframes shake-subtle {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-2px); }
+        75% { transform: translateX(2px); }
+      }
+      .shake-subtle { animation: shake-subtle 0.2s ease-in-out; }
+      @keyframes shake-hard {
+        0%, 100% { transform: translate(0, 0) rotate(0); }
+        20% { transform: translate(-5px, 3px) rotate(-1deg); }
+        40% { transform: translate(3px, -4px) rotate(1deg); }
+        60% { transform: translate(-4px, 4px) rotate(0deg); }
+        80% { transform: translate(4px, -2px) rotate(-1deg); }
+      }
+      .shake-hard { animation: shake-hard 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+      @keyframes sparkle {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(2.5); opacity: 0; }
+      }
+      .sparkle { animation: sparkle 0.5s ease-out forwards; }
+
+      /* Name Tag Animations */
+      @keyframes name-glow {
+        0%, 100% { text-shadow: 0 0 6px #a78bfa, 0 0 10px #a78bfa; color: #e9d5ff; }
+        50% { text-shadow: 0 0 12px #c4b5fd, 0 0 20px #c4b5fd; color: #f5f3ff; }
+      }
+      .animate-name-glow { animation: name-glow 2s ease-in-out infinite; }
+      @keyframes name-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+      .animate-name-float { animation: name-float 1.5s ease-in-out infinite; }
+      @keyframes name-land-bounce {
+        0% { transform: scale(1, 1); }
+        30% { transform: scale(1.2, 0.8) translateY(5px); }
+        60% { transform: scale(0.9, 1.1) translateY(-3px); }
+        100% { transform: scale(1, 1); }
+      }
+      .animate-name-land { animation: name-land-bounce 0.3s ease-out; }
+
+      /* Player Animations */
+      @keyframes idle-bob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+      .animate-idle {
+        animation: idle-bob 1.2s ease-in-out infinite;
+      }
+      @keyframes land-squash {
+        0% { transform: scaleY(1) translateY(0); }
+        30% { transform: scaleY(0.7) translateY(8px); }
+        60% { transform: scaleY(1.1) translateY(-4px); }
+        100% { transform: scaleY(1) translateY(0); }
+      }
+      .animate-land {
+        animation: land-squash 0.2s ease-out;
+      }
+      @keyframes blink {
+        0%, 90%, 100% { transform: scaleY(1); }
+        95% { transform: scaleY(0.1); }
+      }
+      .animate-blink {
+        animation: blink 4s ease-in-out infinite;
+      }
+      @keyframes double-jump-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .animate-double-jump {
+        animation: double-jump-spin 0.3s ease-out;
+      }
+      @keyframes shield-pulse {
+        0% { box-shadow: 0 0 0 0px rgba(56, 189, 248, 0.7); }
+        100% { box-shadow: 0 0 0 20px rgba(56, 189, 248, 0); }
+      }
+      .animate-shield-pulse { animation: shield-pulse 1s infinite; }
+
+      /* Final Level & Boss Animations */
+      @keyframes background-vortex {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes lightning-flash {
+        0%, 100% { opacity: 0; }
+        5%, 15%, 20% { opacity: 1; }
+        10% { opacity: 0.5; }
+      }
+      @keyframes magic-burst {
+        from { transform: scale(0); opacity: 1; }
+        to { transform: scale(1); opacity: 0; }
+      }
+      .animate-magic-burst { animation: magic-burst 0.5s ease-out forwards; }
+      @keyframes guardian-float {
+         0%, 100% { transform: translateY(0); }
+         50% { transform: translateY(-15px); }
+      }
+      @keyframes energy-wave {
+        from { transform: scaleX(0); opacity: 0.8; }
+        to { transform: scaleX(1); opacity: 0.8; }
+      }
+      .animate-energy-wave { animation: energy-wave 0.5s linear; }
+      @keyframes crystal-pulse {
+        0%, 100% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.1); }
+      }
+      @keyframes final-intro-fade {
+        0% { opacity: 0; transform: scale(1.2); }
+        20%, 80% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0; transform: scale(0.8); }
+      }
+      .animate-final-intro { animation: final-intro-fade 3s ease-in-out forwards; }
+       @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in-up { animation: fade-in-up 1s ease-out forwards; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
